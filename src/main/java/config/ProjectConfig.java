@@ -1,8 +1,10 @@
 package config;
 
 import model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,7 +19,10 @@ import java.util.List;
 import java.util.Map;
 
 @Configuration
-public class ProjectConfig {
+public class ProjectConfig{
+
+    @Autowired
+    private AuthenticationProvider authenticationProvider;
 
     @Bean
     public UserDetailsService userDetailsService(){
